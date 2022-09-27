@@ -1,11 +1,13 @@
+import { FC } from "react";
 import { Container } from "./styles";
 
-const Layout = () => {
-  return (
-    <Container>
-      <div>a</div>
-    </Container>
-  );
+interface LayoutProps {
+  children: any;
+  //todo tipar
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => {
+  return <Container>{children}</Container>;
 };
 
 export default Layout;
