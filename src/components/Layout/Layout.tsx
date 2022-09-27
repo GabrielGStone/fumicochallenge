@@ -1,5 +1,11 @@
+import { Container } from "./styles";
+
 const Layout = () => {
-  return <></>;
+  return (
+    <Container>
+      <div>a</div>
+    </Container>
+  );
 };
 
 export default Layout;
