@@ -4,24 +4,19 @@ import ScreenContainer from "../../components/ScreenContainer/ScreenContainer";
 import Title from "../../components/Title/Title";
 import { useNavigate } from "react-router-dom";
 
-const CreateToDo = () => {
+const ToDoList = () => {
   const navigate = useNavigate();
-  const addToDo = () => {
-    navigate("/todo-list");
-  };
   return (
     <ScreenContainer>
       <Layout>
-        <Title>novo lembrete</Title>
+        <Title>lembretes</Title>
       </Layout>
       <NavButtons
-        rightText="adicionar >"
-        rightAction={addToDo}
-        leftText="< voltar"
-        leftAction={() => navigate("/todo-list")}
+        rightText="Novo Lembrete +"
+        rightAction={() => navigate("/create-todo")}
       ></NavButtons>
     </ScreenContainer>
   );
 };
 
-export default CreateToDo;
+export default ToDoList;

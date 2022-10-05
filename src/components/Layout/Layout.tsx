@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 interface LayoutProps {
   children: any;
@@ -7,7 +7,11 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children }) => {
-  return <Container>{children}</Container>;
+  return (
+    <Container>
+      <Content>{children}</Content>
+    </Container>
+  );
 };
 
 export default Layout;
