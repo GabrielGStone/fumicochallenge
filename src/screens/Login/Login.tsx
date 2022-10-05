@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <>
       <ScreenContainer>
-        <Header></Header>
+        <Header />
         <Layout>
           <Title>login</Title>
           <TextInput type="email" placeholder="email">

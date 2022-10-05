@@ -10,11 +10,13 @@ const ToDoList = () => {
   const navigate = useNavigate();
   return (
     <ScreenContainer>
-      <Header></Header>
+      <Header />
       <Layout>
         <Title>lembretes</Title>
         <CheckboxContainer>
-          <TodoText>texto do lembrete</TodoText>
+          <TodoText onClick={() => navigate("/todo-details")}>
+            texto do lembrete
+          </TodoText>
           <TodoCheckbox type="checkbox"></TodoCheckbox>
         </CheckboxContainer>
       </Layout>
