@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Header from "./components/Header/Header";
 import CreateToDo from "./screens/CreateToDo/CreateToDo";
 import EditToDo from "./screens/EditToDo/EditToDo";
 import ToDoList from "./screens/ListToDo/ToDoList";
@@ -10,7 +9,6 @@ import ToDoDetails from "./screens/ToDoDetails/ToDoDetails";
 function App() {
   return (
     <>
-      <Header />
       <BrowserRouter>
         <Routes>
           <Route element={<Login />} path="/" />
