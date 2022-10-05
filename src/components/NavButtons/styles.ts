@@ -12,6 +12,7 @@ export const ButtonContainer = styled.div`
   line-height: 25px;
   z-index: 9;
   display: flex;
+  position: absolute;
 `;
 export const Button = styled.button`
   height: 100%;

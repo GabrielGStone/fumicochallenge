@@ -3,9 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/");
+  };
+
   return (
     <>
-      <Container onClick={() => navigate("/")}>
+      <Container onClick={handleNavigate}>
         <HeaderText>desafio fumico</HeaderText>
       </Container>
     </>
