@@ -3,7 +3,7 @@ import { Input, TextContainer, TitleText } from "./styles";
 
 interface TextInputProps {
   children: string;
-  type: string;
+  type?: string;
   placeholder: string;
 }
 const TextInput: FC<TextInputProps> = ({ children, type, placeholder }) => {

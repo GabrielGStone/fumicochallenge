@@ -10,7 +10,6 @@ import ToDoDetails from "./screens/ToDoDetails/ToDoDetails";
 function App() {
   return (
     <>
-      <Header />
       <BrowserRouter>
         <Routes>
           <Route element={<Login />} path="/" />

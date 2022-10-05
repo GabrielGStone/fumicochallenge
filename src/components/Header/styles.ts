@@ -11,6 +11,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export const HeaderText = styled.div`
