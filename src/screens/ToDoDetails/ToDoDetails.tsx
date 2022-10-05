@@ -7,7 +7,7 @@ import ScreenContainer from "../../components/ScreenContainer/ScreenContainer";
 import Title from "../../components/Title/Title";
 
 interface DetailsProps {
-  id: string;
+  id?: string;
 }
 const ToDoDetails: FC<DetailsProps> = ({ id }) => {
   const navigate = useNavigate();
