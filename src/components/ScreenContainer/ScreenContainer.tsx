@@ -5,11 +5,7 @@ interface ScreenProps {
   children: any;
 }
 const ScreenContainer: FC<ScreenProps> = ({ children }) => {
-  return (
-    <>
-      <Container>{children}</Container>
-    </>
-  );
+  return <Container>{children}</Container>;
 };
 
 export default ScreenContainer;

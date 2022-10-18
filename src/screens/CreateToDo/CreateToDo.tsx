@@ -11,15 +11,16 @@ const CreateToDo = () => {
   const addToDo = () => {
     navigate("/todo-list");
   };
+
   return (
     <ScreenContainer>
       <Header />
       <Layout>
         <Title>novo lembrete</Title>
-        <TextInput type="" placeholder="título do lembrete">
+        <TextInput type="" placeholder="Título do lembrete">
           título
         </TextInput>
-        <TextInput type="" placeholder="descrição...">
+        <TextInput type="" placeholder="descrição..." isDiscription>
           descrição
         </TextInput>
       </Layout>

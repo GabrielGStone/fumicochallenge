@@ -9,9 +9,11 @@ export const Container = styled.div`
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
+  padding-bottom: 80px;
 `;
 
 export const Content = styled.div`
+  max-width: 400px;
   width: 100%;
   padding: 64px 32px;
   display: flex;
