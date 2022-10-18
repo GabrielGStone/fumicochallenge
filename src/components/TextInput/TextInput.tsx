@@ -1,26 +1,40 @@
 import { FC } from "react";
 import { Input, TextArea, TextContainer, TitleText } from "./styles";
+import { Controller } from "react-hook-form";
 
 interface TextInputProps {
   children: string;
   type?: string;
   placeholder: string;
   isDiscription?: boolean;
+  control: any;
+  name: string;
 }
 const TextInput: FC<TextInputProps> = ({
   children,
   type,
   placeholder,
   isDiscription,
+  control,
+  name,
 }) => {
   return (
     <TextContainer>
       <TitleText>{children}</TitleText>
-      {isDiscription ? (
-        <TextArea placeholder={placeholder} />
-      ) : (
-        <Input type={type} placeholder={placeholder} />
-      )}
+
+      <Controller
+        name={name}
+        control={control}
+        render={({ field: { onChange, ...field } }) => (
+          <>
+            {isDiscription ? (
+              <TextArea placeholder={placeholder} />
+            ) : (
+              <Input type={type} placeholder={placeholder} />
+            )}
+          </>
+        )}
+      />
     </TextContainer>
   );
 };
