@@ -5,7 +5,14 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  todos: [],
+  todos: [
+    {
+      id: 1,
+      title: "títilo do lembrete",
+      details: "detalhes do lembrete",
+      isChecked: false,
+    },
+  ],
 };
 
 const todoSlice = createSlice({
