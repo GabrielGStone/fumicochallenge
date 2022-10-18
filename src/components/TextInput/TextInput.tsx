@@ -3,7 +3,7 @@ import { Input, TextArea, TextContainer, TitleText } from "./styles";
 
 interface TextInputProps {
   children: string;
-  type: string;
+  type?: string;
   placeholder: string;
   isDiscription?: boolean;
 }

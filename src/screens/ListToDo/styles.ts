@@ -1,5 +1,9 @@
-import { type } from "os";
 import styled from "styled-components";
+
+export const TodoCheck = styled.input.attrs({ type: "checkbox" })`
+  width: 200px;
+  color: #000;
+`;
 
 export const CheckboxContainer = styled.div`
   display: flex;
