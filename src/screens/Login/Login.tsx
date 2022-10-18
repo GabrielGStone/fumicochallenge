@@ -9,6 +9,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { errorMessages } from "../../components/ErrorMessages/error_messages";
+import { todoActions } from "../../state";
 
 const schema = yup
   .object({
@@ -33,7 +34,7 @@ const Login = () => {
     },
   });
 
-  const onSubmit = async (date: any) => {};
+  const onSubmit = async (data: any) => {};
 
   return (
     <>

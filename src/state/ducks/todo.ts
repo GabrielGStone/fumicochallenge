@@ -19,6 +19,12 @@ const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
+    editTodo: (state, action) => {
+      state.todos.map((data: any) => {
+        if (action.payload.id === data.id) return;
+      });
+      state.todos;
+    },
     setTodo: (state, action) => {
       state.todos = [
         ...state.todos,
