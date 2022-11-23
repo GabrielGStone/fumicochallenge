@@ -5,20 +5,24 @@ import Title from "../../components/Title/Title";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import { CheckboxContainer, TodoCheckbox, TodoText } from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, todoActions } from "../../state";
+import ToDoItem from "./ToDoItem";
 
 const ToDoList = () => {
   const navigate = useNavigate();
+
+  const todo = useSelector((state: RootState) => state.todo.todos);
+
+  // console.log(todo);
   return (
     <ScreenContainer>
       <Header />
       <Layout>
         <Title>lembretes</Title>
-        <CheckboxContainer>
-          <TodoText onClick={() => navigate("/todo-details")}>
-            texto do lembrete
-          </TodoText>
-          <TodoCheckbox type="checkbox"></TodoCheckbox>
-        </CheckboxContainer>
+        {/* {todo.map((data: any) => ( */}
+        <ToDoItem title="data.title" isChecked={!!"data.checked"} />
+        {/* ))} */}
       </Layout>
       <NavButtons
         rightText="Novo Lembrete +"

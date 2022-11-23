@@ -9,6 +9,8 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { errorMessages } from "../../components/ErrorMessages/error_messages";
+import { RootState, todoActions } from "../../state";
+import { useDispatch, useSelector } from "react-redux";
 
 const schema = yup
   .object({
@@ -18,6 +20,8 @@ const schema = yup
   .required();
 
 const CreateToDo = () => {
+  const dispatch = useDispatch;
+
   const navigate = useNavigate();
   const addToDo = () => {
     navigate("/todo-list");
@@ -36,7 +40,10 @@ const CreateToDo = () => {
     },
   });
 
-  const onSubmit = async (date: any) => {};
+  const onSubmit = async (data: any) => {
+    console.log(data);
+    // dispatch(todoActions.setTodo(data));
+  };
 
   return (
     <ScreenContainer>

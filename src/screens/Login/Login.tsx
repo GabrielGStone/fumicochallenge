@@ -33,7 +33,9 @@ const Login = () => {
     },
   });
 
-  const onSubmit = async (date: any) => {};
+  const onSubmit = async (data: any) => {
+    reset();
+  };
 
   return (
     <>

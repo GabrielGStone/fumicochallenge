@@ -36,7 +36,7 @@ const EditToDo = () => {
       description: "",
     },
   });
-  const onSubmit = async (date: any) => {};
+  const onSubmit = async (data: any) => {};
 
   return (
     <ScreenContainer>
