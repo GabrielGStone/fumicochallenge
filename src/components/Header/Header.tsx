@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <>
       <Container onClick={handleNavigate}>
-        <HeaderText>desafio fumico</HeaderText>
+        <HeaderText>todo list</HeaderText>
       </Container>
     </>
   );

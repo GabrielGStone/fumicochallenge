@@ -7,30 +7,22 @@ import Header from "../../components/Header/Header";
 import { CheckboxContainer, TodoCheckbox, TodoText } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, todoActions } from "../../state";
+import ToDoItem from "./ToDoItem";
 
 const ToDoList = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const todo = useSelector((state: RootState) => state.todo.todos);
 
+  // console.log(todo);
   return (
     <ScreenContainer>
       <Header />
       <Layout>
         <Title>lembretes</Title>
-        {todo.map((data: any) => (
-          <CheckboxContainer>
-            <TodoText onClick={() => navigate("/todo-details")}>
-              {data.title}
-            </TodoText>
-            <TodoCheckbox
-              type="checkbox"
-              checked={data.checked}
-              onChange={(e: any) => dispatch(todoActions.editTodo(e.value))}
-            ></TodoCheckbox>
-          </CheckboxContainer>
-        ))}
+        {/* {todo.map((data: any) => ( */}
+        <ToDoItem title="data.title" isChecked={!!"data.checked"} />
+        {/* ))} */}
       </Layout>
       <NavButtons
         rightText="Novo Lembrete +"

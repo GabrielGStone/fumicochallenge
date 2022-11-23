@@ -20,7 +20,7 @@ const schema = yup
   .required();
 
 const CreateToDo = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch;
 
   const navigate = useNavigate();
   const addToDo = () => {
@@ -41,7 +41,8 @@ const CreateToDo = () => {
   });
 
   const onSubmit = async (data: any) => {
-    dispatch(todoActions.setTodo(data));
+    console.log(data);
+    // dispatch(todoActions.setTodo(data));
   };
 
   return (
