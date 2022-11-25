@@ -36,7 +36,10 @@ const EditToDo = () => {
       description: "",
     },
   });
-  const onSubmit = async (data: any) => {};
+  const onSubmit = async (data: any) => {
+    console.log("edit:", data);
+    reset();
+  };
 
   return (
     <ScreenContainer>
@@ -60,6 +63,7 @@ const EditToDo = () => {
           >
             descrição
           </TextInput>
+          <button type="submit">aaaa</button>
         </Layout>
         <NavButtons
           rightText="adicionar >"

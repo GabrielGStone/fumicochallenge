@@ -6,7 +6,7 @@ interface NavButtonsProps {
   leftText?: string;
   leftAction?: () => void;
   rightText: string;
-  rightAction: () => void;
+  rightAction?: () => void;
 }
 
 const NavButtons: FC<NavButtonsProps> = ({
@@ -31,7 +31,9 @@ const NavButtons: FC<NavButtonsProps> = ({
       ) : (
         ""
       )}
-      <Button onClick={rightAction}>{rightText}</Button>
+      <Button onClick={rightAction} type="submit">
+        {rightText}
+      </Button>
     </ButtonContainer>
   );
 };

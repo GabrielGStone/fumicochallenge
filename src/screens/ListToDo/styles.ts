@@ -9,7 +9,7 @@ export const CheckboxContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #dadce0;
+  /* background-color: #dadce0; */
   width: 100%;
 `;
 export const TodoCheckbox = styled.input`

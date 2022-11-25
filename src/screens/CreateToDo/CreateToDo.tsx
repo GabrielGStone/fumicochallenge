@@ -23,9 +23,6 @@ const CreateToDo = () => {
   const dispatch = useDispatch;
 
   const navigate = useNavigate();
-  const addToDo = () => {
-    navigate("/todo-list");
-  };
 
   const {
     control,
@@ -41,13 +38,15 @@ const CreateToDo = () => {
   });
 
   const onSubmit = async (data: any) => {
-    console.log(data);
+    console.log("data", data);
     // dispatch(todoActions.setTodo(data));
+    reset();
+    navigate("/todo-list");
   };
 
   return (
-    <ScreenContainer>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <ScreenContainer>
         <Header />
         <Layout>
           <Title>novo lembrete</Title>
@@ -68,15 +67,15 @@ const CreateToDo = () => {
           >
             descrição
           </TextInput>
+          <button type="submit">aaaa</button>
         </Layout>
         <NavButtons
           rightText="adicionar >"
-          rightAction={addToDo}
           leftText="< voltar"
-          leftAction={() => navigate("/todo-list")}
+          // leftAction={() => navigate("/todo-list")}
         ></NavButtons>
-      </form>
-    </ScreenContainer>
+      </ScreenContainer>
+    </form>
   );
 };
 
