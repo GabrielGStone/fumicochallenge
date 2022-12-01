@@ -37,11 +37,10 @@ const CreateToDo = () => {
     },
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = (data: any) => {
     console.log("data", data);
     // dispatch(todoActions.setTodo(data));
-    reset();
-    navigate("/todo-list");
+    // navigate("/todo-list");
   };
 
   return (
@@ -67,12 +66,15 @@ const CreateToDo = () => {
           >
             descrição
           </TextInput>
-          <button type="submit">aaaa</button>
+          <button type="submit">aaa</button>
         </Layout>
         <NavButtons
           rightText="adicionar >"
+          rightProps={{
+            type: "submit",
+          }}
           leftText="< voltar"
-          // leftAction={() => navigate("/todo-list")}
+          leftAction={() => navigate("/todo-list")}
         ></NavButtons>
       </ScreenContainer>
     </form>

@@ -9,6 +9,9 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { errorMessages } from "../../components/ErrorMessages/error_messages";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const schema = yup
   .object({
@@ -19,6 +22,11 @@ const schema = yup
 
 const EditToDo = () => {
   const navigate = useNavigate();
+
+  const todos = useSelector((state: RootState) => state.todo.todos);
+  const id = useSelector((state: RootState) => state.todo.activeTodo);
+
+  const activeTodo = todos.find((element: any) => element.id === id);
 
   const editToDo = () => {
     navigate("/todo-list");
@@ -36,34 +44,34 @@ const EditToDo = () => {
       description: "",
     },
   });
-  const onSubmit = async (data: any) => {
+  const onSubmit = (data: any) => {
     console.log("edit:", data);
-    reset();
+    // reset();
   };
 
   return (
-    <ScreenContainer>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <ScreenContainer>
         <Header />
         <Layout>
           <Title>editar</Title>
           <TextInput
             type=""
-            placeholder="título do lembrete"
+            placeholder={activeTodo.title}
             control={control}
             name="title"
           >
             título
           </TextInput>
           <TextInput
-            placeholder="lorem"
+            placeholder={activeTodo.details}
             isDiscription
             control={control}
             name="description"
           >
             descrição
           </TextInput>
-          <button type="submit">aaaa</button>
+          <ErrorMessage></ErrorMessage>
         </Layout>
         <NavButtons
           rightText="adicionar >"
@@ -71,8 +79,8 @@ const EditToDo = () => {
           leftText="< voltar"
           leftAction={() => navigate("/todo-list")}
         ></NavButtons>
-      </form>
-    </ScreenContainer>
+      </ScreenContainer>
+    </form>
   );
 };
 

@@ -13,9 +13,15 @@ const ToDoItem: FC<ToDoProps> = ({ title, isChecked, id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const goToDetails = () => {
+    dispatch(todoActions.setActiveTodo(id));
+    navigate("/todo-details");
+  };
   return (
     <CheckboxContainer>
-      <TodoText onClick={() => navigate("/todo-details")}>{title}</TodoText>
+      <TodoText onClick={() => goToDetails()} isChecked={!!isChecked}>
+        {title}
+      </TodoText>
       <TodoCheckbox
         type="checkbox"
         checked={isChecked}

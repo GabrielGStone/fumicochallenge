@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const TodoCheck = styled.input.attrs({ type: "checkbox" })`
   width: 200px;
@@ -17,8 +17,19 @@ export const TodoCheckbox = styled.input`
   right: 0;
 `;
 
-export const TodoText = styled.label`
+interface TodoProps {
+  isChecked: boolean;
+}
+
+const checkedStyle = css`
+  text-decoration: line-through;
+  color: #dadce0;
+`;
+
+export const TodoText = styled.label<TodoProps>`
   font-weight: 600;
   font-size: 16px;
   white-space: nowrap;
+
+  ${(isChecked) => isChecked && checkedStyle}
 `;

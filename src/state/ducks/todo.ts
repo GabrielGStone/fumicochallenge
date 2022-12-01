@@ -2,17 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {
   todos: any;
+  activeTodo: any;
 }
 
 const initialState: InitialState = {
   todos: [
     {
-      id: 1,
-      title: "títilo do lembrete",
-      details: "detalhes do lembrete",
+      id: 5,
+      title: "títilo do lembrete, bele?",
+      details:
+        "detalhes do lembreteaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       isChecked: false,
     },
   ],
+  activeTodo: 0,
 };
 
 const todoSlice = createSlice({
@@ -24,19 +27,20 @@ const todoSlice = createSlice({
     },
 
     setTodo: (state, action) => {
-      state.todos = [
-        ...state.todos,
-        {
-          id: new Date(),
-          title: action.payload.title,
-          details: action.payload.details,
-          isChecked: action.payload.isChecked,
-        },
-      ];
+      state.todos.push({
+        id: new Date(),
+        title: action.payload.title,
+        details: action.payload.details,
+        isChecked: false,
+      });
     },
 
     deleteTodo: (state, action) => {
       // return state.todos.filter((todo) => todo !== action.payload);
+    },
+
+    setActiveTodo: (state, action) => {
+      state.activeTodo = action.payload;
     },
   },
 });

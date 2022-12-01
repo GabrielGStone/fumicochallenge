@@ -4,9 +4,8 @@ import ScreenContainer from "../../components/ScreenContainer/ScreenContainer";
 import Title from "../../components/Title/Title";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
-import { CheckboxContainer, TodoCheckbox, TodoText } from "./styles";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, todoActions } from "../../state";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state";
 import ToDoItem from "./ToDoItem";
 
 const ToDoList = () => {
@@ -14,14 +13,13 @@ const ToDoList = () => {
 
   const todo = useSelector((state: RootState) => state.todo.todos);
 
-  console.log(todo);
   return (
     <ScreenContainer>
       <Header />
       <Layout>
         <Title>lembretes</Title>
         {todo.map((data: any) => (
-          <ToDoItem title={data.title} isChecked={data.checked} />
+          <ToDoItem title={data.title} isChecked={data.checked} id={data.id} />
         ))}
       </Layout>
       <NavButtons
