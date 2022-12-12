@@ -25,12 +25,12 @@ const TextInput: FC<TextInputProps> = ({
       <Controller
         name={name}
         control={control}
-        render={({ field: { onChange, ...field } }) => (
+        render={({ field: { ...field } }) => (
           <>
             {isDiscription ? (
-              <TextArea placeholder={placeholder} />
+              <TextArea placeholder={placeholder} {...field} />
             ) : (
-              <Input type={type} placeholder={placeholder} />
+              <Input type={type} placeholder={placeholder} {...field} />
             )}
           </>
         )}

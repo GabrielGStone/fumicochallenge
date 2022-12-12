@@ -5,9 +5,9 @@ import { todoActions } from "../../state";
 import { CheckboxContainer, TodoCheckbox, TodoText } from "./styles";
 
 interface ToDoProps {
-  isChecked?: boolean;
-  title?: string;
-  id?: any;
+  isChecked: boolean;
+  title: string;
+  id: any;
 }
 const ToDoItem: FC<ToDoProps> = ({ title, isChecked, id }) => {
   const navigate = useNavigate();
@@ -19,12 +19,12 @@ const ToDoItem: FC<ToDoProps> = ({ title, isChecked, id }) => {
   };
   return (
     <CheckboxContainer>
-      <TodoText onClick={() => goToDetails()} isChecked={!!isChecked}>
+      <TodoText onClick={() => goToDetails()} isChecked={!isChecked}>
         {title}
       </TodoText>
       <TodoCheckbox
         type="checkbox"
-        checked={isChecked}
+        // checked={isChecked}
         // onChange={(e: any) => dispatch(todoActions.editTodo(id, e.value))}
       ></TodoCheckbox>
     </CheckboxContainer>

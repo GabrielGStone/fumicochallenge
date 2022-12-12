@@ -8,10 +8,9 @@ interface InitialState {
 const initialState: InitialState = {
   todos: [
     {
-      id: 5,
+      id: 1,
       title: "títilo do lembrete, bele?",
-      details:
-        "detalhes do lembreteaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      details: "detalhes A",
       isChecked: false,
     },
   ],
@@ -23,7 +22,9 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     editTodo: (state, action) => {
-      // return  state.todos.find((todo) => todo.id === action.payload )  ;
+      // state.todos.find((todo: any) => {
+      //   todo.id === action.payload.id;
+      // });
     },
 
     setTodo: (state, action) => {
@@ -36,7 +37,9 @@ const todoSlice = createSlice({
     },
 
     deleteTodo: (state, action) => {
-      // return state.todos.filter((todo) => todo !== action.payload);
+      state.todos = state.todos.filter(
+        (todo: any) => todo.id !== action.payload
+      );
     },
 
     setActiveTodo: (state, action) => {

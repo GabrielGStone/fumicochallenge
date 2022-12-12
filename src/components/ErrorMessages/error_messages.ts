@@ -11,5 +11,5 @@ export const errorMessages = {
   passwordRequired: `senha ${validations.required}`,
 
   titleRequired: `titulo ${validations.required}`,
-  descriptionRequired: `descrição ${validations.required}`,
+  detailsRequired: `descrição ${validations.required}`,
 };

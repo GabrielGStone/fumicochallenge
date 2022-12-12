@@ -2,13 +2,13 @@ import { FC } from "react";
 import { ErrorWrap, Text } from "./styles";
 
 interface Props {
-  children?: any;
+  text?: any;
 }
 
-const ErrorMessage: FC<Props> = ({ children }) => {
+const ErrorMessage: FC<Props> = ({ text }) => {
   return (
     <ErrorWrap>
-      <Text>{children}</Text>
+      <Text>{text}</Text>
     </ErrorWrap>
   );
 };

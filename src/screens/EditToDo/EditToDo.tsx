@@ -16,7 +16,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 const schema = yup
   .object({
     title: yup.string().trim().required(errorMessages.titleRequired),
-    description: yup.string().required(errorMessages.descriptionRequired),
+    details: yup.string().required(errorMessages.detailsRequired),
   })
   .required();
 
@@ -41,12 +41,12 @@ const EditToDo = () => {
     resolver: yupResolver(schema),
     defaultValues: {
       title: "",
-      description: "",
+      details: "",
     },
   });
   const onSubmit = (data: any) => {
     console.log("edit:", data);
-    // reset();
+    reset();
   };
 
   return (
@@ -63,15 +63,16 @@ const EditToDo = () => {
           >
             título
           </TextInput>
+          <ErrorMessage text={errors.title?.message} />
           <TextInput
             placeholder={activeTodo.details}
             isDiscription
             control={control}
-            name="description"
+            name="details"
           >
             descrição
           </TextInput>
-          <ErrorMessage></ErrorMessage>
+          <ErrorMessage text={errors.details?.message} />
         </Layout>
         <NavButtons
           rightText="adicionar >"

@@ -1,5 +1,4 @@
-import { FC } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Layout from "../../components/Layout/Layout";
@@ -7,18 +6,21 @@ import NavButtons from "../../components/NavButtons/NavButtons";
 import ScreenContainer from "../../components/ScreenContainer/ScreenContainer";
 import Title from "../../components/Title/Title";
 import TitleText from "../../components/TitleText/TitleText";
-import { RootState } from "../../state";
+import { RootState, todoActions } from "../../state";
 import { ButtonsContainer, EditButton, EditImage } from "./styles";
 
 const ToDoDetails = () => {
+  const dispatch = useDispatch();
   const todos = useSelector((state: RootState) => state.todo.todos);
   const id = useSelector((state: RootState) => state.todo.activeTodo);
   const navigate = useNavigate();
-  const removeTodo = () => {
-    navigate(-1);
-  };
 
   const activeTodo = todos.find((element: any) => element.id === id);
+
+  const removeTodo = () => {
+    dispatch(todoActions.deleteTodo(id));
+    navigate(-1);
+  };
 
   return (
     <ScreenContainer>

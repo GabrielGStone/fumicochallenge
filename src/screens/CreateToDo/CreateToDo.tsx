@@ -9,18 +9,19 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { errorMessages } from "../../components/ErrorMessages/error_messages";
-import { RootState, todoActions } from "../../state";
-import { useDispatch, useSelector } from "react-redux";
+import ErrorMessage from "../../components/ErrorMessage";
+import { todoActions } from "../../state";
+import { useDispatch } from "react-redux";
 
 const schema = yup
   .object({
     title: yup.string().trim().required(errorMessages.titleRequired),
-    description: yup.string().required(errorMessages.descriptionRequired),
+    details: yup.string().required(errorMessages.detailsRequired),
   })
   .required();
 
 const CreateToDo = () => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -33,19 +34,25 @@ const CreateToDo = () => {
     resolver: yupResolver(schema),
     defaultValues: {
       title: "",
-      description: "",
+      details: "",
     },
   });
 
   const onSubmit = (data: any) => {
     console.log("data", data);
-    // dispatch(todoActions.setTodo(data));
-    // navigate("/todo-list");
+    dispatch(todoActions.setTodo(data));
+    navigate("/todo-list");
   };
 
+  console.log(errors.title?.message);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <ScreenContainer>
+        {/* {Object.values(errors).map((e) => (
+          <>
+            <p>{e.message}</p>
+          </>
+        ))} */}
         <Header />
         <Layout>
           <Title>novo lembrete</Title>
@@ -62,11 +69,10 @@ const CreateToDo = () => {
             placeholder="descrição..."
             isDiscription
             control={control}
-            name="description"
+            name="details"
           >
             descrição
           </TextInput>
-          <button type="submit">aaa</button>
         </Layout>
         <NavButtons
           rightText="adicionar >"

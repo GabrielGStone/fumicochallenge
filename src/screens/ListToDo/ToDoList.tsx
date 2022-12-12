@@ -13,12 +13,14 @@ const ToDoList = () => {
 
   const todo = useSelector((state: RootState) => state.todo.todos);
 
+  console.log("todolist", todo);
+
   return (
     <ScreenContainer>
       <Header />
       <Layout>
         <Title>lembretes</Title>
-        {todo.map((data: any) => (
+        {todo?.map((data: any) => (
           <ToDoItem title={data.title} isChecked={data.checked} id={data.id} />
         ))}
       </Layout>
