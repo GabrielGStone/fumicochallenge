@@ -11,7 +11,7 @@ import { ButtonsContainer, EditButton, EditImage } from "./styles";
 
 const ToDoDetails = () => {
   const dispatch = useDispatch();
-  const todos = useSelector((state: RootState) => state.todo.todos);
+  const todos = useSelector((state: RootState) => state.todo.tasks);
   const id = useSelector((state: RootState) => state.todo.activeTodo);
   const navigate = useNavigate();
 

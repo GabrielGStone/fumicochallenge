@@ -23,7 +23,7 @@ const schema = yup
 const EditToDo = () => {
   const navigate = useNavigate();
 
-  const todos = useSelector((state: RootState) => state.todo.todos);
+  const todos = useSelector((state: RootState) => state.todo.tasks);
   const id = useSelector((state: RootState) => state.todo.activeTodo);
 
   const activeTodo = todos.find((element: any) => element.id === id);

@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {
-  todos: any;
+  tasks: any;
   activeTodo: any;
 }
 
 const initialState: InitialState = {
-  todos: [
+  tasks: [
     {
       id: 1,
       title: "títilo do lembrete, bele?",
@@ -28,7 +28,7 @@ const todoSlice = createSlice({
     },
 
     setTodo: (state, action) => {
-      state.todos.push({
+      state.tasks.push({
         id: new Date(),
         title: action.payload.title,
         details: action.payload.details,
@@ -37,7 +37,7 @@ const todoSlice = createSlice({
     },
 
     deleteTodo: (state, action) => {
-      state.todos = state.todos.filter(
+      state.tasks = state.tasks.filter(
         (todo: any) => todo.id !== action.payload
       );
     },

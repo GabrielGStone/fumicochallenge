@@ -11,7 +11,7 @@ import ToDoItem from "./ToDoItem";
 const ToDoList = () => {
   const navigate = useNavigate();
 
-  const todo = useSelector((state: RootState) => state.todo.todos);
+  const todo = useSelector((state: RootState) => state.todo.tasks);
 
   console.log("todolist", todo);
 
