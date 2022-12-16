@@ -5,10 +5,11 @@ import { Controller } from "react-hook-form";
 interface TextInputProps {
   children: string;
   type?: string;
-  placeholder: string;
+  placeholder?: string;
   isDiscription?: boolean;
   control: any;
   name: string;
+  value?: string;
 }
 const TextInput: FC<TextInputProps> = ({
   children,
@@ -17,6 +18,7 @@ const TextInput: FC<TextInputProps> = ({
   isDiscription,
   control,
   name,
+  value,
 }) => {
   return (
     <TextContainer>

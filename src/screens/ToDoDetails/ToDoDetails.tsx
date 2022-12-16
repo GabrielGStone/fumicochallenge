@@ -18,8 +18,8 @@ const ToDoDetails = () => {
   const activeTodo = todos.find((element: any) => element.id === id);
 
   const removeTodo = () => {
-    dispatch(todoActions.deleteTodo(id));
     navigate(-1);
+    dispatch(todoActions.deleteTodo(id));
   };
 
   return (
@@ -27,7 +27,7 @@ const ToDoDetails = () => {
       <Header />
       <Layout>
         <Title>detalhes</Title>
-        <TitleText title={activeTodo.title} text={activeTodo.details} />
+        <TitleText title={activeTodo?.title} text={activeTodo?.details} />
         <ButtonsContainer>
           <EditButton onClick={removeTodo}>
             <EditImage src="./assets/trash.svg" />

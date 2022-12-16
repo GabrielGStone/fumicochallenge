@@ -9,9 +9,10 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { errorMessages } from "../../components/ErrorMessages/error_messages";
-import { useSelector } from "react-redux";
-import { RootState } from "../../state";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, todoActions } from "../../state";
 import ErrorMessage from "../../components/ErrorMessage";
+import { useEffect } from "react";
 
 const schema = yup
   .object({
@@ -21,6 +22,7 @@ const schema = yup
   .required();
 
 const EditToDo = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const todos = useSelector((state: RootState) => state.todo.tasks);
@@ -28,15 +30,12 @@ const EditToDo = () => {
 
   const activeTodo = todos.find((element: any) => element.id === id);
 
-  const editToDo = () => {
-    navigate("/todo-list");
-  };
-
   const {
     control,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -45,9 +44,14 @@ const EditToDo = () => {
     },
   });
   const onSubmit = (data: any) => {
-    console.log("edit:", data);
-    reset();
+    const payload = { ...data, id: id, isChecked: activeTodo?.isChecked };
+
+    dispatch(todoActions.editTodo(payload));
+    navigate(-1);
   };
+
+  setValue("title", activeTodo.title);
+  setValue("details", activeTodo.details);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -76,7 +80,6 @@ const EditToDo = () => {
         </Layout>
         <NavButtons
           rightText="adicionar >"
-          rightAction={editToDo}
           leftText="< voltar"
           leftAction={() => navigate("/todo-list")}
         ></NavButtons>

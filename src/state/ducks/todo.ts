@@ -22,9 +22,16 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     editTodo: (state, action) => {
-      // state.todos.find((todo: any) => {
-      //   todo.id === action.payload.id;
-      // });
+      const index = state.tasks.indexOf(
+        (todo: any) => todo.id === action.payload.id
+      );
+
+      state.tasks[index] = {
+        id: action.payload.id,
+        title: action.payload.title,
+        details: action.payload.details,
+        isChecked: action.payload.isChecked,
+      };
     },
 
     setTodo: (state, action) => {

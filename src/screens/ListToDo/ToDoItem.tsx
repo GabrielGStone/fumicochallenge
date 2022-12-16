@@ -8,8 +8,9 @@ interface ToDoProps {
   isChecked: boolean;
   title: string;
   id: any;
+  details: string;
 }
-const ToDoItem: FC<ToDoProps> = ({ title, isChecked, id }) => {
+const ToDoItem: FC<ToDoProps> = ({ title, isChecked, id, details }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -17,15 +18,28 @@ const ToDoItem: FC<ToDoProps> = ({ title, isChecked, id }) => {
     dispatch(todoActions.setActiveTodo(id));
     navigate("/todo-details");
   };
+
+  const checkTodo = (e: any) => {
+    console.log("e", e);
+    const payload = {
+      isChecked: e,
+      id: id,
+      title: title,
+      details: details,
+    };
+    console.log(payload);
+    dispatch(todoActions.editTodo(payload));
+  };
+
   return (
     <CheckboxContainer>
-      <TodoText onClick={() => goToDetails()} isChecked={!isChecked}>
+      <TodoText onClick={() => goToDetails()} isChecked={isChecked}>
         {title}
       </TodoText>
       <TodoCheckbox
         type="checkbox"
-        // checked={isChecked}
-        // onChange={(e: any) => dispatch(todoActions.editTodo(id, e.value))}
+        checked={isChecked}
+        onChange={(e: any) => checkTodo(e.target.checked)}
       ></TodoCheckbox>
     </CheckboxContainer>
   );
