@@ -22,11 +22,11 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     editTodo: (state, action) => {
-      const index = state.tasks.indexOf(
+      const taskIndex = state.tasks.findIndex(
         (todo: any) => todo.id === action.payload.id
       );
 
-      state.tasks[index] = {
+      state.tasks[taskIndex] = {
         id: action.payload.id,
         title: action.payload.title,
         details: action.payload.details,

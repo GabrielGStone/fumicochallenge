@@ -19,21 +19,27 @@ const ToDoItem: FC<ToDoProps> = ({ title, isChecked, id, details }) => {
     navigate("/todo-details");
   };
 
-  const checkTodo = (e: any) => {
-    console.log("e", e);
+  const checkTodo = (isChecked: boolean) => {
+    console.log("e", isChecked);
     const payload = {
-      isChecked: e,
+      isChecked: isChecked,
       id: id,
       title: title,
       details: details,
     };
-    console.log(payload);
     dispatch(todoActions.editTodo(payload));
   };
 
   return (
     <CheckboxContainer>
-      <TodoText onClick={() => goToDetails()} isChecked={isChecked}>
+      <TodoText
+        onClick={() => goToDetails()}
+        isChecked={isChecked}
+        style={{
+          textDecoration: isChecked ? "line-through" : "",
+          color: isChecked ? "#dadce0" : "",
+        }}
+      >
         {title}
       </TodoText>
       <TodoCheckbox

@@ -47,7 +47,7 @@ const EditToDo = () => {
     const payload = { ...data, id: id, isChecked: activeTodo?.isChecked };
 
     dispatch(todoActions.editTodo(payload));
-    navigate(-1);
+    navigate("/todo-list");
   };
 
   setValue("title", activeTodo.title);
