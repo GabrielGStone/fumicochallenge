@@ -11,8 +11,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { errorMessages } from "../../components/ErrorMessages/error_messages";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, todoActions } from "../../state";
-import ErrorMessage from "../../components/ErrorMessage";
-import { useEffect } from "react";
 
 const schema = yup
   .object({
@@ -34,7 +32,6 @@ const EditToDo = () => {
     control,
     handleSubmit,
     formState: { errors },
-    reset,
     setValue,
   } = useForm({
     resolver: yupResolver(schema),
