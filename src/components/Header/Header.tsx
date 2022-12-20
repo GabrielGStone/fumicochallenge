@@ -15,6 +15,7 @@ const Header = () => {
 
   useEffect(() => {
     !token && navigate("/");
+    //eslint-disable-next-line
   }, [token]);
 
   return (
