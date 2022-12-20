@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Text, Title } from "./styles";
+import { Box, Text, Title } from "./styles";
 
 interface TextProps {
   title: string;
@@ -8,8 +8,10 @@ interface TextProps {
 const TitleText: FC<TextProps> = ({ title, text }) => {
   return (
     <>
-      <Title>{title}</Title>
-      <Text>{text}</Text>
+      <Box>
+        <Title>{title}</Title>
+        <Text>{text}</Text>
+      </Box>
     </>
   );
 };

@@ -10,7 +10,7 @@ export const CheckboxContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   /* background-color: #f4f4f4; */
-  border: 1px #000 solid;
+  border: 2px #000 solid;
   padding: 8px;
   width: 100%;
   margin-bottom: 16px;
@@ -34,11 +34,10 @@ export const TodoText = styled.label<TodoProps>`
   font-weight: 600;
   font-size: 16px;
   white-space: nowrap;
-  max-width: 270px;
+  max-width: 275px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-x: hidden;
   ${(isChecked) => isChecked && checkedStyle}
 `;
