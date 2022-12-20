@@ -15,7 +15,7 @@ const Header = () => {
 
   useEffect(() => {
     !token && navigate("/");
-  }, []);
+  }, [token]);
 
   return (
     <>
