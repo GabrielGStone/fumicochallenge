@@ -9,6 +9,8 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { errorMessages } from "../../components/ErrorMessages/error_messages";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../state/actions";
 
 const schema = yup
   .object({
@@ -18,6 +20,7 @@ const schema = yup
   .required();
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const {
@@ -34,9 +37,12 @@ const Login = () => {
   });
 
   const onSubmit = async (data: any) => {
+    dispatch(authActions.login(data));
+    navigate("/todo-list");
     reset();
   };
 
+  console.log("login", errors);
   return (
     <>
       <ScreenContainer>
@@ -49,6 +55,7 @@ const Login = () => {
               placeholder="email"
               control={control}
               name="email"
+              error={errors["email"]}
             >
               seu e-mail
             </TextInput>
@@ -57,14 +64,12 @@ const Login = () => {
               placeholder="********"
               control={control}
               name="password"
+              error={errors["password"]}
             >
               senha
             </TextInput>
           </Layout>
-          <NavButtons
-            rightText="fazer login"
-            rightAction={() => navigate("/todo-list")}
-          ></NavButtons>
+          <NavButtons rightText="fazer login"></NavButtons>
         </form>
       </ScreenContainer>
     </>

@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { Input, TextArea, TextContainer, TitleText } from "./styles";
 import { Controller } from "react-hook-form";
+import ErrorMessage from "../ErrorMessage";
+import { FieldError } from "react-hook-form/dist/types";
 
 interface TextInputProps {
   children: string;
@@ -9,7 +11,7 @@ interface TextInputProps {
   isDiscription?: boolean;
   control: any;
   name: string;
-  value?: string;
+  error?: any;
 }
 const TextInput: FC<TextInputProps> = ({
   children,
@@ -18,8 +20,10 @@ const TextInput: FC<TextInputProps> = ({
   isDiscription,
   control,
   name,
-  value,
+  error,
 }) => {
+  console.log(error);
+
   return (
     <TextContainer>
       <TitleText>{children}</TitleText>
@@ -37,6 +41,7 @@ const TextInput: FC<TextInputProps> = ({
           </>
         )}
       />
+      {error && <ErrorMessage text={error.message} />}
     </TextContainer>
   );
 };

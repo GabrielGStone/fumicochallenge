@@ -64,19 +64,19 @@ const EditToDo = () => {
             placeholder={activeTodo.title}
             control={control}
             name="title"
+            error={errors["title"]}
           >
             título
           </TextInput>
-          <ErrorMessage text={errors.title?.message} />
           <TextInput
             placeholder={activeTodo.details}
             isDiscription
             control={control}
             name="details"
+            error={errors["details"]}
           >
             descrição
           </TextInput>
-          <ErrorMessage text={errors.details?.message} />
         </Layout>
         <NavButtons
           rightText="adicionar >"

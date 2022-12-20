@@ -39,12 +39,10 @@ const CreateToDo = () => {
   });
 
   const onSubmit = (data: any) => {
-    console.log("data", data);
     dispatch(todoActions.setTodo(data));
     navigate("/todo-list");
   };
 
-  console.log(errors.title?.message);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <ScreenContainer>
@@ -61,6 +59,7 @@ const CreateToDo = () => {
             placeholder="Título do lembrete"
             control={control}
             name="title"
+            error={errors["title"]}
           >
             título
           </TextInput>
@@ -70,6 +69,7 @@ const CreateToDo = () => {
             isDiscription
             control={control}
             name="details"
+            error={errors["details"]}
           >
             descrição
           </TextInput>
