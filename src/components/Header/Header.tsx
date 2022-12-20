@@ -13,7 +13,6 @@ const Header = () => {
     navigate("/");
   };
 
-  console.log(token);
   useEffect(() => {
     !token && navigate("/");
   }, []);

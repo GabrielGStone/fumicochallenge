@@ -9,7 +9,6 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { errorMessages } from "../../components/ErrorMessages/error_messages";
-import ErrorMessage from "../../components/ErrorMessage";
 import { todoActions } from "../../state";
 import { useDispatch } from "react-redux";
 
@@ -29,7 +28,6 @@ const CreateToDo = () => {
     control,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {

@@ -2,7 +2,6 @@ import { FC } from "react";
 import { Input, TextArea, TextContainer, TitleText } from "./styles";
 import { Controller } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
-import { FieldError } from "react-hook-form/dist/types";
 
 interface TextInputProps {
   children: string;
