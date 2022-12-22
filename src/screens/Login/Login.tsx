@@ -9,8 +9,10 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { errorMessages } from "../../components/ErrorMessages/error_messages";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../state/actions";
+import { useEffect } from "react";
+import { RootState } from "../../state";
 
 const schema = yup
   .object({
@@ -22,6 +24,7 @@ const schema = yup
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const token = useSelector((state: RootState) => state.auth.token);
 
   const {
     control,
@@ -42,7 +45,11 @@ const Login = () => {
     reset();
   };
 
-  console.log("login", errors);
+  useEffect(() => {
+    token && navigate("/todo-list");
+    //eslint-disable-next-line
+  }, []);
+
   return (
     <>
       <ScreenContainer>
@@ -55,7 +62,7 @@ const Login = () => {
               placeholder="email"
               control={control}
               name="email"
-              error={errors["email"]}
+              error={errors.email}
             >
               seu e-mail
             </TextInput>
@@ -64,7 +71,7 @@ const Login = () => {
               placeholder="********"
               control={control}
               name="password"
-              error={errors["password"]}
+              error={errors.password}
             >
               senha
             </TextInput>

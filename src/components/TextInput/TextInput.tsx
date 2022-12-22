@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Input, TextArea, TextContainer, TitleText } from "./styles";
-import { Controller } from "react-hook-form";
+import { Controller, FieldError } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
 
 interface TextInputProps {
@@ -10,7 +10,7 @@ interface TextInputProps {
   isDiscription?: boolean;
   control: any;
   name: string;
-  error?: any;
+  error?: FieldError;
 }
 const TextInput: FC<TextInputProps> = ({
   children,
@@ -21,7 +21,7 @@ const TextInput: FC<TextInputProps> = ({
   name,
   error,
 }) => {
-  console.log(error);
+  console.log("component text", error);
 
   return (
     <TextContainer>
@@ -30,7 +30,7 @@ const TextInput: FC<TextInputProps> = ({
       <Controller
         name={name}
         control={control}
-        render={({ field: { ...field } }) => (
+        render={({ field }) => (
           <>
             {isDiscription ? (
               <TextArea placeholder={placeholder} {...field} />

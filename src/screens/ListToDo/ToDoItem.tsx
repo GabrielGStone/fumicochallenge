@@ -20,7 +20,6 @@ const ToDoItem: FC<ToDoProps> = ({ title, isChecked, id, details }) => {
   };
 
   const checkTodo = (isChecked: boolean) => {
-    console.log("e", isChecked);
     const payload = {
       isChecked: isChecked,
       id: id,
@@ -37,7 +36,7 @@ const ToDoItem: FC<ToDoProps> = ({ title, isChecked, id, details }) => {
         isChecked={isChecked}
         style={{
           textDecoration: isChecked ? "line-through" : "",
-          color: isChecked ? "#dadce0" : "",
+          color: isChecked ? "#929292" : "",
         }}
       >
         {title}

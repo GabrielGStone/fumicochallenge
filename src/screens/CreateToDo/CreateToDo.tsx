@@ -57,7 +57,7 @@ const CreateToDo = () => {
             placeholder="Título do lembrete"
             control={control}
             name="title"
-            error={errors["title"]}
+            error={errors.title}
           >
             título
           </TextInput>
@@ -67,7 +67,7 @@ const CreateToDo = () => {
             isDiscription
             control={control}
             name="details"
-            error={errors["details"]}
+            error={errors.details}
           >
             descrição
           </TextInput>
