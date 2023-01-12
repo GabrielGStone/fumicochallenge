@@ -9,8 +9,8 @@ const initialState: InitialState = {
   tasks: [
     {
       id: 1,
-      title: "títilo do lembrete, bele?",
-      details: "detalhes A",
+      title: "títilo do lembrete",
+      details: "detalhes do lembrete",
       isChecked: false,
     },
   ],
