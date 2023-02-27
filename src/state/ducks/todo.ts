@@ -9,7 +9,7 @@ const initialState: InitialState = {
   tasks: [
     {
       id: 1,
-      title: "títilo do lembrete",
+      title: "títilu do lembrete",
       details: "detalhes, detalhes e mais detalhes",
       isChecked: false,
     },
