@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-export const Box = styled.div`
-  width: 83vw;
-`;
+export const Box = styled.div``;
 
 export const Text = styled.p`
   font-weight: 300;
