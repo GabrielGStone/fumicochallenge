@@ -37,10 +37,10 @@ const TextInput: FC<TextInputProps> = ({
             ) : (
               <Input type={type} placeholder={placeholder} {...field} />
             )}
+            {error && <ErrorMessage text={error.message} />}
           </>
         )}
       />
-      {error && <ErrorMessage text={error.message} />}
     </TextContainer>
   );
 };

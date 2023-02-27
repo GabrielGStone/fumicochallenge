@@ -14,8 +14,8 @@ const Header = () => {
     navigate("/");
   };
 
-  const Logout = async () => {
-    dispatch(authActions.logout);
+  const Logout = () => {
+    dispatch(authActions.logout());
   };
 
   useEffect(() => {
@@ -28,7 +28,11 @@ const Header = () => {
       <Container>
         <div></div>
         <HeaderText onClick={handleNavigate}>todo list</HeaderText>
-        <LogoutButton onClick={Logout}>Logout</LogoutButton>
+        {token ? (
+          <LogoutButton onClick={Logout}>Logout</LogoutButton>
+        ) : (
+          <div></div>
+        )}
       </Container>
     </>
   );
