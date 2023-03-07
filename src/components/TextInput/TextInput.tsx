@@ -11,7 +11,9 @@ interface TextInputProps {
   control: any;
   name: string;
   error?: FieldError;
+  inputRef?: any;
 }
+
 const TextInput: FC<TextInputProps> = ({
   children,
   type,
@@ -20,9 +22,8 @@ const TextInput: FC<TextInputProps> = ({
   control,
   name,
   error,
+  inputRef,
 }) => {
-  console.log("component text", error);
-
   return (
     <TextContainer>
       <TitleText>{children}</TitleText>
@@ -33,11 +34,21 @@ const TextInput: FC<TextInputProps> = ({
         render={({ field }) => (
           <>
             {isDiscription ? (
-              <TextArea placeholder={placeholder} {...field} />
+              <TextArea placeholder={placeholder} {...field} ref={inputRef} />
             ) : (
-              <Input type={type} placeholder={placeholder} {...field} />
+              <Input
+                type={type}
+                placeholder={placeholder}
+                {...field}
+                ref={inputRef}
+              />
             )}
-            {error && <ErrorMessage text={error.message} />}
+            {error && error.type === "required" && (
+              <ErrorMessage text={error.message} />
+            )}
+            {error && error.type === "pattern" && (
+              <ErrorMessage text={error.message} />
+            )}
           </>
         )}
       />

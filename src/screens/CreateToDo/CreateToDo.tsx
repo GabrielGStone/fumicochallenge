@@ -37,8 +37,10 @@ const CreateToDo = () => {
   });
 
   const onSubmit = (data: any) => {
-    dispatch(todoActions.setTodo(data));
-    navigate("/todo-list");
+    if (data.title && data.details) {
+      dispatch(todoActions.setTodo(data));
+      navigate("/todo-list");
+    }
   };
 
   return (
