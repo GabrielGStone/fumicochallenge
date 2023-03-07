@@ -44,7 +44,7 @@ const EditToDo = () => {
     const payload = { ...data, id: id, isChecked: activeTodo?.isChecked };
 
     dispatch(todoActions.editTodo(payload));
-    navigate("/todo-list");
+    navigate("/");
   };
 
   setValue("title", activeTodo.title);
@@ -78,7 +78,7 @@ const EditToDo = () => {
         <NavButtons
           rightText="adicionar >"
           leftText="< voltar"
-          leftAction={() => navigate("/todo-list")}
+          leftAction={() => navigate("/")}
         ></NavButtons>
       </ScreenContainer>
     </form>

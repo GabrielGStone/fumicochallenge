@@ -41,12 +41,12 @@ const Login = () => {
 
   const onSubmit = async (data: any) => {
     dispatch(authActions.login(data));
-    navigate("/todo-list");
+    navigate("/");
     reset();
   };
 
   useEffect(() => {
-    token && navigate("/todo-list");
+    token && navigate("/");
     //eslint-disable-next-line
   }, []);
 

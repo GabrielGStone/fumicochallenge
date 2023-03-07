@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    !token && navigate("/");
+    !token && navigate("/login");
     //eslint-disable-next-line
   }, [token]);
 

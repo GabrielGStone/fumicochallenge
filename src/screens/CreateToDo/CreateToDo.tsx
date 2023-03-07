@@ -39,7 +39,7 @@ const CreateToDo = () => {
   const onSubmit = (data: any) => {
     if (data.title && data.details) {
       dispatch(todoActions.setTodo(data));
-      navigate("/todo-list");
+      navigate("/");
     }
   };
 
@@ -80,7 +80,7 @@ const CreateToDo = () => {
             type: "submit",
           }}
           leftText="< voltar"
-          leftAction={() => navigate("/todo-list")}
+          leftAction={() => navigate("/")}
         ></NavButtons>
       </ScreenContainer>
     </form>
